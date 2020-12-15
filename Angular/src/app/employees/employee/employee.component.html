@@ -1,0 +1,27 @@
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+  <input type="hidden" name="ID" #ID="ngModel" [(ngModel)]="service.formData.ID">
+  <div class="form-group">
+    <label>Full Name</label>
+    <input name="Full_Name" #Full_Name="ngModel" [(ngModel)]="service.formData.Full_Name" class="form-control" required>
+    <div class="validation-error" *ngIf="Full_Name.invalid && Full_Name.touched">Full Name is required.</div>
+  </div>
+
+  <div class="form-group">
+    <label>Position</label>
+    <input name="Position" #Position="ngModel" [(ngModel)]="service.formData.Position" class="form-control" required>
+    <div class="validation-error" *ngIf="Position.invalid && Position.touched">Position is required.</div>
+  </div>
+
+
+  <div class="form-group">
+    <label>Mobile No</label>
+    <input name="Mobile_No" #Mobile_No="ngModel" [(ngModel)]="service.formData.Mobile_No" class="form-control" required>
+    <div class="validation-error" *ngIf="Mobile_No.invalid && Mobile_No.touched">Mobile No is required.</div>
+  </div>
+
+
+  <div class="form-group">
+    <button id="submitButton" [disabled]="form.invalid" class="btn btn-lg btn-primary">Submit</button>
+    <button class="btn btn-lg btn-danger" (click)="clearButtonIsClicked()">Clear</button>
+  </div>
+</form>
